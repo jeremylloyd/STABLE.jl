@@ -1,5 +1,7 @@
 module STABLE
 
-# Write your package code here.
+export sayhi
+
+include("util.jl")
 
 end
