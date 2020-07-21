@@ -3,6 +3,10 @@ uuid = "bd69c6d4-d509-4602-a194-ebd554ba9bb3"
 authors = ["James D Foster <James.Foster@csiro.au> and contributors"]
 version = "0.1.0"
 
+[deps]
+Dieter = "82bee632-140d-11e9-0e64-453bcc1f3349"
+OrderedCollections = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"
+
 [compat]
 julia = "1"
 
