@@ -4,8 +4,17 @@ authors = ["James D Foster <James.Foster@csiro.au> and contributors"]
 version = "0.1.0"
 
 [deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+DBInterface = "a10d1c49-ce27-4219-8d33-6db1a4562965"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+DataFramesMeta = "1313f7d8-7da2-5740-9ea0-a2ca25f37964"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
 Dieter = "82bee632-140d-11e9-0e64-453bcc1f3349"
+JuMP = "4076af6c-e467-56ae-b986-b466b2749572"
 OrderedCollections = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"
+SQLite = "0aa819cd-b072-5ff4-a722-6bc24af294d9"
+Serialization = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
+TimeSeries = "9e3dc215-6440-5c97-bce1-76c03772f85e"
 
 [compat]
 julia = "1"

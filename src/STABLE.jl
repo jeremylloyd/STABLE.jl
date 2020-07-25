@@ -22,12 +22,9 @@ import Serialization
 # import XLSX
 
 import OrderedCollections: OrderedDict
-function sortbyvals(d::Dict)
-    return sort!(OrderedDict(d),byvalue=true,rev=true)
-end
 
+include("structures.jl")
 include("util.jl")
 include("datamodels.jl")
-include("structures.jl")
 
 end
