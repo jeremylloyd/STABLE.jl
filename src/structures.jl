@@ -38,12 +38,13 @@ end
 
 mutable struct STABLErunSettings
       RunSettingsIdentifier::String # 
-      ResultsPath::String # resultsdir - Path to directory where results will be written.
-      Flags::OrderedDict{String,Any}  #
+      Flags::OrderedDict{String,Bool}  #
       Parameters::OrderedDict{String,Any}
 end
 
 # Transmission parameters:
+# SynCon_CapCost::Float64  # Cost of synchronous condenser with flywheel
+# SynCon_Lifetime::Integer # Synchronous condenser plant economic lifetime
 # Tx_Lifetime::Integer       # Transmission economic lifetime
 # Tx_Cost_Scaling::Float64   # Transmission cost scaling factor
 # Tx_Exp_UB_Factor::Float64   # Factor for setting upper bound on size of transmission expansion as multiple of existing capacity
@@ -52,8 +53,8 @@ end
 #   Flag H2::Bool  # :h2 - include H2 technology constraints if true.
 #   Flag EV::Bool  # :ev - include EV technology constraints if true.
 #   Flag HeatLoads::Bool # :heat - include Building Heat Load constraints if true.
-#   Flag NewGasAllowed::Bool   # NoNewGas - No new gas technology built if false
-#   Flag NewDistillate::Bool   # NoNewDistillate - No new liquid distillate technology built if false
+#   Flag NewGasAllowed::Bool   # NoNewGas -  New gas technology built if true.
+#   Flag NewDistillate::Bool   # NoNewDistillate - New liquid distillate technology built if true.
 #   Flag FixExistingCap::Bool  # FixExistingCapFlag - Fix the variables for existing capacity to the given values if true
 
 # Run Structure
@@ -66,9 +67,12 @@ mutable struct STABLErun
       RunTimestampFinish::String 
       RunStatus::String
       RunNote::String    # A text annotation in order to aid identification of runs
+      ResultsIdentifier::String  # Identifier for Results (e.g. filenames)
+      ResultsPath::String        # The path to directory where Results will be written - resultsdir
 end
 # Construct from STrun::STABLErun the RunDescriptor::String # scenario_timestamp
 
 # Examples of Tests:
 # @assert STBL_scen.ScenarioName in Allowed_Scenarios
 # @assert ScenarioName in Allowed_Scenarios
+

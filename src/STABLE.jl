@@ -2,6 +2,7 @@ module STABLE
 
 ## %% Load packages
 using Dieter
+# import Dieter: initialise_data_file_dict!, check_files_exist
 import Dieter: parse_file, parse_nodes!, parse_base_technologies!, parse_storages!, parse_load!, parse_availibility!
 import Dieter: initialise_set_relation_data!, parse_set_relations!,parse_arcs!, calc_base_parameters!, parse_extensions!
 import Dieter: dvalmatch, dkeymatch, split_df_tuple
@@ -25,6 +26,6 @@ import OrderedCollections: OrderedDict
 
 include("structures.jl")
 include("util.jl")
-include("datamodels.jl")
+# include("datamodels.jl")
 
 end
