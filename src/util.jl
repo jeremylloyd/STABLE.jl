@@ -6,6 +6,11 @@ function sayhi()
 end
 
 "Copy and sort a dictionary by value"
+function sortbykeys(d::Dict)
+    return sort!(OrderedDict(d),byvalue=false)
+end
+
+"Copy and sort a dictionary by value"
 function sortbyvals(d::Dict)
     return sort!(OrderedDict(d),byvalue=true,rev=true)
 end
@@ -51,10 +56,12 @@ function create_Dieter_settings(ST_run::STABLErun)
     dtr_settings[:weather_year] = scenario.WeatherYear
     dtr_settings[:trace_year] = scenario.TraceYear
     dtr_settings[:min_res] = scenario.MinimumRenewShare
+    dtr_settings[:min_res_system] = scenario.MinimumRenewShare
     dtr_settings[:tech_cost_scen] = scenario.TechCostScenario
     dtr_settings[:fuel_cost_scen] = scenario.FuelCostScenario
     dtr_settings[:vpp_scen] = scenario.VPPbatteryScenario
     dtr_settings[:h2_scen] = scenario.HydrogenScenario
+    dtr_settings[:tx_scen] = scenario.TxScenario
 
     dtr_settings[:inst_id] = instance.InstanceIdentifier
     dtr_settings[:inst_year] = instance.InstanceYear
@@ -138,7 +145,8 @@ function InitScenarios(scen_input_dc::OrderedDict,ScenarioSettings::STABLEglobal
                 scen_dc["TechCostScenario"],
                 scen_dc["FuelCostScenario"],
                 scen_dc["VPPbatteryScenario"],
-                scen_dc["HydrogenScenario"]
+                scen_dc["HydrogenScenario"],
+                scen_dc["TxScenario"]
             )
     end
     return Scenarios_Dict

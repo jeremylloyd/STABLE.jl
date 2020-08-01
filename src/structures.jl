@@ -18,11 +18,12 @@ mutable struct STABLEscenario
       ScenarioNumber::Integer     # Number identifier for data input/lookup.
       WeatherYear::Integer        # Historical year as basis for renewable traces
       TraceYear::Integer          # Which year to use from the ReferenceYear trace dataset
-      MinimumRenewShare::Integer  # Default floor value on the minimum yearly renewables requirement for all regions.
+      MinimumRenewShare::Integer  # Default value on the minimum yearly renewables requirement for the whole of system.
       TechCostScenario::String    # Scenario identifier for the technology cost data
       FuelCostScenario::String    # Scenario identifier for the fuel cost data
       VPPbatteryScenario          # Scenario identifier for the virtual power plant battery uptake data.
       HydrogenScenario            # Scenario identifier for hydrogen uptake.
+      TxScenario::Array{String}   # List of committed transmission upgrades.
 end
 
 ## %% Instance Structure
