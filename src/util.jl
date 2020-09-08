@@ -11,8 +11,8 @@ function sortbykeys(d::Dict)
 end
 
 "Copy and sort a dictionary by value"
-function sortbyvals(d::Dict)
-    return sort!(OrderedDict(d),byvalue=true,rev=true)
+function sortbyvals(d::Dict;rev=true)
+    return sort!(OrderedDict(d),byvalue=true,rev=rev)
 end
 
 "Display the data from the input files"
