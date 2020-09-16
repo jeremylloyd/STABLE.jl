@@ -105,6 +105,8 @@ function create_Dieter_settings(ST_run::STABLErun)
     dtr_settings[:cost_syncon] = run_settings.Parameters["SynCon_CapCost"]
     dtr_settings[:lifetime_syncon] = run_settings.Parameters["SynCon_Lifetime"]
 
+    dtr_settings[:capacity_factor_ae] = run_settings.Parameters["AE_Capacity_Factor"]
+
     # # Legacy:
     # dtr_settings[:coal_adjust] = 1;
     # dtr_settings[:peak_factor] = 2.5;
