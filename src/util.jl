@@ -81,15 +81,23 @@ function create_Dieter_settings(ST_run::STABLErun)
     else
         dtr_settings[:ev] = dtr_settings[:ev_flag]
     end
+
     dtr_settings[:heat_flag] = run_settings.Flags["HeatLoads"]
     if dtr_settings[:heat_flag] == false
         dtr_settings[:heat] = missing
     else
         dtr_settings[:heat] = dtr_settings[:heat_flag]
     end
-    dtr_settings[:h2_flag] = run_settings.Flags["H2"]  # `false` means H2 not included, positive number means H2 included
+    
+    dtr_settings[:h2_flag] = run_settings.Flags["H2"]  # 0 (`false`) means H2 not included, positive number means H2 included
+    if dtr_settings[:h2_scen] > 0   # Overwrite h2_flag settting by using the Scenario setting (may revise in future)
+        dtr_settings[:h2_flag] = true
+    else
+        dtr_settings[:h2_flag] = false
+    end
     if dtr_settings[:h2_flag]
-        dtr_settings[:h2] = 0
+        # If h2_scen is 1, we just consider a single scenario of P2G H2 demand. So a setting of 1 means G2P and GasStorages are not included.
+        dtr_settings[:h2] = dtr_settings[:h2_scen]
     else
         dtr_settings[:h2] = missing
     end
