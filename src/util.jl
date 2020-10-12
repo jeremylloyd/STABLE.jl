@@ -40,6 +40,8 @@ end
 function create_Dieter_settings(ST_run::STABLErun)
     dtr_settings = Dict{Symbol,Any}()
 
+    hoursInYear = Dieter.hoursInYear
+
     instance = ST_run.RunInstance
     scenario = instance.InstanceScenario
     global_settings = scenario.ScenarioSettings
@@ -49,6 +51,8 @@ function create_Dieter_settings(ST_run::STABLErun)
     dtr_settings[:timestep] = global_settings.Timestep
     dtr_settings[:interest] = global_settings.DiscountRate
     dtr_settings[:cost_scaling] = global_settings.CostScaling
+
+    dtr_settings[:periods] = round(Int,hoursInYear*(2/global_settings.Timestep))
 
     dtr_settings[:scen] = scenario.ScenarioIdentifier
     dtr_settings[:scen_name] = scenario.ScenarioName
