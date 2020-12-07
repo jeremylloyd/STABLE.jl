@@ -174,7 +174,17 @@ function InitInstances(inst_input_dc::OrderedDict,Scenarios_Dict::OrderedDict{St
             error("Scenario $(inst_id) not found in the given Scenario Dict")
         end
         Instances_Dict[inst_id] = OrderedDict{Integer,STABLEinstance}()
-        for year in inst_dc["InstanceYears"]
+
+        if !isempty(inst_dc["InstanceYears"])
+            CreateYears = inst_dc["InstanceYears"]
+        else
+            start_year = inst_dc["InstancesStart"]
+            end_year = inst_dc["InstancesEnd"]
+            year_step = inst_dc["InstancesStep"]
+            CreateYears = collect((start_year):(year_step):(end_year))
+        end
+            
+        for year in CreateYears
             Instances_Dict[inst_id][year] = 
                 STABLEinstance(
                     Scenarios_Dict[inst_dc["ScenarioIdentifier"]], # STABLEscenario
@@ -182,6 +192,7 @@ function InitInstances(inst_input_dc::OrderedDict,Scenarios_Dict::OrderedDict{St
                     year     # InstanceYear
                 )
         end
+
     end
     return Instances_Dict
 end
