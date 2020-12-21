@@ -110,6 +110,8 @@ function create_Dieter_settings(ST_run::STABLErun)
     dtr_settings[:NewDistillate_flag] = run_settings.Flags["NewDistillate"]
     dtr_settings[:FixExistingCap_flag] = run_settings.Flags["FixExistingCap"]
     
+    dtr_settings[:capacity_factor_ae] = run_settings.Parameters["AE_Capacity_Factor"]
+
     dtr_settings[:lifetime_Tx] = run_settings.Parameters["Tx_Lifetime"]
     dtr_settings[:scaling_Tx] = run_settings.Parameters["Tx_Cost_Scaling"]
     dtr_settings[:exp_bound_multiple] = run_settings.Parameters["Tx_Exp_UB_Factor"]
@@ -117,7 +119,10 @@ function create_Dieter_settings(ST_run::STABLErun)
     dtr_settings[:cost_syncon] = run_settings.Parameters["SynCon_CapCost"]
     dtr_settings[:lifetime_syncon] = run_settings.Parameters["SynCon_Lifetime"]
 
-    dtr_settings[:capacity_factor_ae] = run_settings.Parameters["AE_Capacity_Factor"]
+    dtr_settings[:capacity_syncon_SA] = run_settings.Parameters["SynCon_SA_Capacity"]
+    dtr_settings[:timing_syncon_SA] = run_settings.Parameters["SynCon_SA_Timing"]
+    
+    dtr_settings[:timing_central_west] = run_settings.Parameters["Central_West_Timing"]
 
     # # Legacy:
     # dtr_settings[:coal_adjust] = 1;
