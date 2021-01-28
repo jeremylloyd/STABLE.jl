@@ -114,7 +114,7 @@ function create_Dieter_settings(ST_run::STABLErun)
 
     dtr_settings[:lifetime_Tx] = run_settings.Parameters["Tx_Lifetime"]
     dtr_settings[:scaling_Tx] = run_settings.Parameters["Tx_Cost_Scaling"]
-    dtr_settings[:exp_bound_multiple] = run_settings.Parameters["Tx_Exp_UB_Factor"]
+    dtr_settings[:tx_exp_upper_bound] = run_settings.Parameters["Tx_Exp_UB_Factor"]
     
     dtr_settings[:cost_syncon] = run_settings.Parameters["SynCon_CapCost"]
     dtr_settings[:lifetime_syncon] = run_settings.Parameters["SynCon_Lifetime"]
