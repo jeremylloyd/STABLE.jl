@@ -111,6 +111,8 @@ function create_Dieter_settings(ST_run::STABLErun)
     dtr_settings[:FixExistingCap_flag] = run_settings.Flags["FixExistingCap"]
     
     dtr_settings[:capacity_factor_ae] = run_settings.Parameters["AE_Capacity_Factor"]
+    dtr_settings[:capacity_factor_recipH2_ub] = run_settings.Parameters["RecipH2_Capacity_Factor_UB"]
+    dtr_settings[:lifetime_recipH2] = run_settings.Parameters["RecipH2_Timing"]
     
     dtr_settings[:loss_factor_tx] = run_settings.Parameters["Tx_Loss_Factor"]
     dtr_settings[:lifetime_Tx] = run_settings.Parameters["Tx_Lifetime"]
