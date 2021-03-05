@@ -126,6 +126,10 @@ function create_Dieter_settings(ST_run::STABLErun)
     dtr_settings[:timing_syncon_SA] = run_settings.Parameters["SynCon_SA_Timing"]
     
     dtr_settings[:timing_central_west] = run_settings.Parameters["Central_West_Timing"]
+    
+    dtr_settings[:timing_snowy2] = run_settings.Parameters["Snowy2_Timing"]
+    dtr_settings[:capacity_snowy2] = run_settings.Parameters["Snowy2_Capacity"]
+    dtr_settings[:hours_storage_snowy2] = run_settings.Parameters["Snowy2_HoursStorage"]
 
     # # Legacy:
     # dtr_settings[:coal_adjust] = 1;
