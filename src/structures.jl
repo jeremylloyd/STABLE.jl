@@ -43,12 +43,14 @@ mutable struct STABLErunSettings
       Parameters::OrderedDict{String,Any}
 end
 
-# Transmission parameters:
-# SynCon_CapCost::Float64  # Cost of synchronous condenser with flywheel
-# SynCon_Lifetime::Integer # Synchronous condenser plant economic lifetime
-# Tx_Lifetime::Integer       # Transmission economic lifetime
+## Transmission parameters:
+# Tx_Loss_Factor::Float64  # Transmission loss factor multiplier on demand e.g. 1.06 represents 6% losses. 
+# Tx_Lifetime::Integer       # Transmission economic lifetime. Units: years
 # Tx_Cost_Scaling::Float64   # Transmission cost scaling factor
 # Tx_Exp_UB_Factor::Float64   # Factor for setting upper bound on size of transmission expansion as multiple of existing capacity
+## Synchronous condensers parameters:
+# SynCon_Parameters: Lifetime::Integer # Synchronous condenser plant economic lifetime. Units: years
+# SynCon_Parameters: CapCost::Float64  # Cost of synchronous condenser type. Units: $/MW
 
 # Expected Flags:
 #   Flag H2::Bool  # :h2 - include H2 technology constraints if true.
