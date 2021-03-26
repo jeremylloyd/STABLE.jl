@@ -59,6 +59,8 @@ function create_Dieter_settings(ST_run::STABLErun)
     dtr_settings[:scen_number] = scenario.ScenarioNumber
     dtr_settings[:weather_year] = scenario.WeatherYear
     dtr_settings[:trace_year] = scenario.TraceYear
+    dtr_settings[:battery_improve_year] = scenario.BatteryImproveYear
+    # dtr_settings[:grid_following_fraction] = scenario.GridFollowFraction
     dtr_settings[:min_res] = scenario.MinimumRenewShare
     dtr_settings[:min_res_system] = scenario.MinimumRenewShare
     dtr_settings[:tech_cost_scen] = scenario.TechCostScenario
@@ -169,6 +171,7 @@ function InitScenarios(scen_input_dc::OrderedDict,ScenarioSettings::STABLEglobal
                 scen_dc["ScenarioNumber"],
                 scen_dc["WeatherYear"],
                 scen_dc["TraceYear"],
+                scen_dc["BatteryImproveYear"],
                 scen_dc["MinimumRenewShare"],
                 scen_dc["TechCostScenario"],
                 scen_dc["FuelCostScenario"],

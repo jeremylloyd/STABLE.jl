@@ -18,6 +18,8 @@ mutable struct STABLEscenario
       ScenarioNumber::Integer     # Number identifier for data input/lookup.
       WeatherYear::Integer        # Historical year as basis for renewable traces
       TraceYear::Integer          # Which year to use from the ReferenceYear trace dataset
+      BatteryImproveYear::Integer # Projected year of improved battery response speed
+      # GridFollowFraction::Float64 # Fraction of installed renewables that have grid following inverters in BatteryImproveYear
       MinimumRenewShare::Integer  # Default value on the minimum yearly renewables requirement for the whole of system.
       TechCostScenario::String    # Scenario identifier for the technology cost data
       FuelCostScenario::String    # Scenario identifier for the fuel cost data
