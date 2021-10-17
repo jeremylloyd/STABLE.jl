@@ -57,6 +57,8 @@ function create_Dieter_settings(ST_run::STABLErun)
     dtr_settings[:scen] = scenario.ScenarioIdentifier
     dtr_settings[:scen_name] = scenario.ScenarioName
     dtr_settings[:scen_number] = scenario.ScenarioNumber
+    dtr_settings[:tg_scen] = scenario.TGScenarioIdentifier
+    dtr_settings[:tg_scen_number] = scenario.TGScenarioNumber
     dtr_settings[:weather_year] = scenario.WeatherYear
     dtr_settings[:trace_year] = scenario.TraceYear
     dtr_settings[:battery_improve_year] = scenario.BatteryImproveYear
@@ -67,6 +69,7 @@ function create_Dieter_settings(ST_run::STABLErun)
     dtr_settings[:fuel_cost_scen] = scenario.FuelCostScenario
     dtr_settings[:vpp_scen] = scenario.VPPbatteryScenario
     dtr_settings[:h2_scen] = scenario.HydrogenScenario
+    dtr_settings[:h2_g2p_scen] = scenario.HydrogenGasPeaker
     dtr_settings[:tx_scen] = scenario.TxScenario
 
     dtr_settings[:inst_id] = instance.InstanceIdentifier
@@ -169,6 +172,8 @@ function InitScenarios(scen_input_dc::OrderedDict,ScenarioSettings::STABLEglobal
                 scen_dc["ScenarioIdentifier"],
                 scen_dc["ScenarioName"],
                 scen_dc["ScenarioNumber"],
+                scen_dc["TGScenarioIdentifier"],
+                scen_dc["TGScenarioNumber"],
                 scen_dc["WeatherYear"],
                 scen_dc["TraceYear"],
                 scen_dc["BatteryImproveYear"],
@@ -177,6 +182,7 @@ function InitScenarios(scen_input_dc::OrderedDict,ScenarioSettings::STABLEglobal
                 scen_dc["FuelCostScenario"],
                 scen_dc["VPPbatteryScenario"],
                 scen_dc["HydrogenScenario"],
+                scen_dc["HydrogenGasPeaker"],
                 scen_dc["TxScenario"]
             )
     end

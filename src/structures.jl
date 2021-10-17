@@ -16,6 +16,8 @@ mutable struct STABLEscenario
       ScenarioIdentifier::String
       ScenarioName::String
       ScenarioNumber::Integer     # Number identifier for data input/lookup.
+      TGScenarioIdentifier::String    # Bridge to pre-populated scenarios.
+      TGScenarioNumber::String        # Bridge to pre-populated scenarios.
       WeatherYear::Integer        # Historical year as basis for renewable traces
       TraceYear::Integer          # Which year to use from the ReferenceYear trace dataset
       BatteryImproveYear::Integer # Projected year of improved battery response speed
@@ -25,6 +27,7 @@ mutable struct STABLEscenario
       FuelCostScenario::String    # Scenario identifier for the fuel cost data
       VPPbatteryScenario          # Scenario identifier for the virtual power plant battery uptake data.
       HydrogenScenario            # Scenario identifier for hydrogen uptake.
+      HydrogenGasPeaker::Integer  # Scenario identifier for allowing hydrogen gas peaking plant.
       TxScenario::Array{String}   # List of committed transmission upgrades.
 end
 
