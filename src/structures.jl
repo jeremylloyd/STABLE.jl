@@ -28,6 +28,10 @@ mutable struct STABLEscenario
       VPPbatteryScenario          # Scenario identifier for the virtual power plant battery uptake data.
       HydrogenScenario            # Scenario identifier for hydrogen uptake.
       HydrogenGasPeaker::Integer  # Scenario identifier for allowing hydrogen gas peaking plant.
+      FixExistingCap::Bool        # Flag to indicate whether to fix the variables for existing capacity to the given values if true.
+      NewGasAllowed::Bool         # Flag to indicate whether new gas plant capacity is built if true.
+      NewDistillateAllowed::Bool  # Flag to indicate whether new liquid distillate technology capacity is built if true.
+      NoNewFossilFuelsYear::Integer # Projected year at which no new fossil-fuel technologies are built.
       TxScenario::Array{String}   # List of committed transmission upgrades.
 end
 
@@ -38,7 +42,7 @@ mutable struct STABLEinstance
       InstanceIdentifier::String
       InstanceYear::Integer # The year (projected or historical) to simulate within the given Scenario.
 end
-# e.g # STinst.Flags["FixExistingCapFlag"] = true, NoNewGas, NoNewDistillate
+# e.g # STinst.Flags["FixExistingCapFlag"] = true, NoNewGas, NoNewDistillateAllowed
 
 ## %% Run Settings Structure for specific configuration of runs
 
@@ -61,9 +65,9 @@ end
 #   Flag H2::Bool  # :h2 - include H2 technology constraints if true.
 #   Flag EV::Bool  # :ev - include EV technology constraints if true.
 #   Flag HeatLoads::Bool # :heat - include Building Heat Load constraints if true.
-#   Flag NewGasAllowed::Bool   # NoNewGas -  New gas technology built if true.
-#   Flag NewDistillate::Bool   # NoNewDistillate - New liquid distillate technology built if true.
 #   Flag FixExistingCap::Bool  # FixExistingCapFlag - Fix the variables for existing capacity to the given values if true
+#   Flag NewGasAllowed::Bool   # NoNewGas -  New gas technology built if true.
+#   Flag NewDistillateAllowed::Bool   # NoNewDistillateAllowed - New liquid distillate technology built if true.
 
 # Run Structure
 

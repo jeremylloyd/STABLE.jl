@@ -70,6 +70,10 @@ function create_Dieter_settings(ST_run::STABLErun)
     dtr_settings[:vpp_scen] = scenario.VPPbatteryScenario
     dtr_settings[:h2_scen] = scenario.HydrogenScenario
     dtr_settings[:h2_g2p_scen] = scenario.HydrogenGasPeaker
+    dtr_settings[:FixExistingCap_flag] = scenario.FixExistingCap
+    dtr_settings[:NewGasAllowed_flag] = scenario.NewGasAllowed
+    dtr_settings[:NewDistillateAllowed_flag] = scenario.NewDistillateAllowed
+    dtr_settings[:NoNewFossilFuels_year] = scenario.NoNewFossilFuelsYear
     dtr_settings[:tx_scen] = scenario.TxScenario
 
     dtr_settings[:inst_id] = instance.InstanceIdentifier
@@ -111,13 +115,9 @@ function create_Dieter_settings(ST_run::STABLErun)
         dtr_settings[:h2] = missing
     end
     
-    dtr_settings[:NewGasAllowed_flag] = run_settings.Flags["NewGasAllowed"]
-    dtr_settings[:NewDistillate_flag] = run_settings.Flags["NewDistillate"]
-    dtr_settings[:FixExistingCap_flag] = run_settings.Flags["FixExistingCap"]
-    
     dtr_settings[:capacity_factor_ae] = run_settings.Parameters["AE_Capacity_Factor"]
     dtr_settings[:capacity_factor_recipH2_ub] = run_settings.Parameters["RecipH2_Capacity_Factor_UB"]
-    dtr_settings[:lifetime_recipH2] = run_settings.Parameters["RecipH2_Timing"]
+    dtr_settings[:recipH2_timing] = run_settings.Parameters["RecipH2_Timing"]
     
     dtr_settings[:loss_factor_tx] = run_settings.Parameters["Tx_Loss_Factor"]
     dtr_settings[:lifetime_Tx] = run_settings.Parameters["Tx_Lifetime"]
@@ -183,6 +183,10 @@ function InitScenarios(scen_input_dc::OrderedDict,ScenarioSettings::STABLEglobal
                 scen_dc["VPPbatteryScenario"],
                 scen_dc["HydrogenScenario"],
                 scen_dc["HydrogenGasPeaker"],
+                scen_dc["FixExistingCap"],
+                scen_dc["NewGasAllowed"],
+                scen_dc["NewDistillateAllowed"],
+                scen_dc["NoNewFossilFuelsYear"],
                 scen_dc["TxScenario"]
             )
     end
