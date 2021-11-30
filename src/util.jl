@@ -115,7 +115,9 @@ function create_Dieter_settings(ST_run::STABLErun)
         dtr_settings[:h2] = missing
     end
     
-    dtr_settings[:capacity_factor_ae] = run_settings.Parameters["AE_Capacity_Factor"]
+    dtr_settings[:ae_capacity_factor_lb] = run_settings.Parameters["AE_Capacity_Factor_LB"]
+    dtr_settings[:pem_capacity_factor_lb] = run_settings.Parameters["PEM_Capacity_Factor_LB"]
+    dtr_settings[:h2_p2g_capacity_factor_ub] = run_settings.Parameters["H2_P2G_Capacity_Factor_UB"]
     dtr_settings[:capacity_factor_recipH2_ub] = run_settings.Parameters["RecipH2_Capacity_Factor_UB"]
     dtr_settings[:recipH2_timing] = run_settings.Parameters["RecipH2_Timing"]
     
